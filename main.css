@@ -437,6 +437,72 @@ img {
   }
 }
 
+/* Laptops */
+@media (max-height: 1080px) {
+  .showcase {
+    height: 300px;
+  }
+  .showcase h1 {
+    top: 10px;
+    font-size: 35px;
+  }
+
+  .showcase p {
+    max-width: 400px;
+    margin: 15px 0;
+  }
+
+  .showcase a {
+    position: relative;
+  }
+
+  .showcase .grid {
+    overflow: visible;
+    grid-template-columns: 55% auto;
+    gap: 100px;
+  }
+
+  .showcase-text {
+    animation: slideInFromLeft 1s ease-in;
+  }
+
+  .showcase-form .form-control {
+    margin: 30px 0;
+  }
+
+  .showcase-form input[type="text"],
+  .showcase-form input[type="email"] {
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    width: 100%;
+    padding: 3px;
+    font-size: 16px;
+  }
+
+  .showcase-form input:focus {
+    outline: none;
+  }
+  .stats {
+    padding-top: 15px;
+  }
+
+  .stats-heading {
+    visibility: hidden;
+    position: relative;
+    padding: 50px;
+    margin: auto;
+  }
+
+  .stats .grid h3 {
+    font-size: 15px;
+  }
+
+  .stats .grid p {
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
 /* Tablets and under */
 @media (max-width: 768px) {
   .grid,
@@ -469,17 +535,35 @@ img {
     height: 70px;
   }
 
-  .navbar .flex {
-  }
-
   .navbar ul {
     padding: 5px;
     background-color: rgba(0, 0, 0, 0.1);
   }
+  .showcase h1 {
+    font-size: 25px;
+    padding: 15px;
+    margin-bottom: 0;
+  }
+
+  .showcase-text {
+    /* position: absolute; */
+    font-size: 13px;
+    text-align: center;
+    padding: 5px;
+    margin-top: 300px;
+    animation: slideInFromTop 1s ease-in;
+  }
+  .btn {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 5px;
+  }
 
   .showcase-form {
-    width: 300px;
-    margin-top: 10px;
+    visibility: hidden;
+  }
+  .stats {
+    visibility: hidden;
   }
 }
 
