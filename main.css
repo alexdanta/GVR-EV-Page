@@ -82,6 +82,7 @@ img {
 }
 
 .loading-bar {
+  visibility: hidden;
   position: absolute;
   top: 50%;
   width: 100%;
@@ -93,6 +94,7 @@ img {
 }
 
 .loading-bar.ended {
+  visibility: hidden;
   transform: scaleX(0);
   transform-origin: 100% 0;
   transition: transform 1.5s ease-in-out;
