@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap);
 :root {
   --primary-color: #22a0f3;
+  --primary1-color: #f3997b;
+  --primary2-color: #8ec89a;
+  --primary3-color: #83d0f5;
+  --secondary-color: #1b206e;
 }
 
 * {
@@ -81,6 +85,103 @@ img {
   outline: none;
 }
 
+#loading-screen {
+  position: absolute;
+  display: flex;
+
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  opacity: 1;
+  transition: 1s opacity;
+}
+
+#loading-screen.fade-out {
+  opacity: 0;
+}
+
+.AhgLogo {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 0 -60px;
+  border-radius: 50%;
+}
+
+#loader {
+  display: block;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: 150px;
+  height: 150px;
+  margin: -75px 0 0 -75px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--primary2-color);
+  filter: hue-rotate(5deg);
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+#loader:before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--primary3-color);
+  filter: hue-rotate(5deg);
+  -webkit-animation: spin 3s linear infinite;
+  animation: spin 3s linear infinite;
+}
+#loader:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: var(--primary1-color);
+  filter: hue-rotate(5deg);
+  -webkit-animation: spin 1.5s linear infinite;
+  animation: spin 1.5s linear infinite;
+}
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
 .loading-bar {
   visibility: hidden;
   position: absolute;
@@ -99,7 +200,6 @@ img {
   transform-origin: 100% 0;
   transition: transform 1.5s ease-in-out;
 }
-
 .point {
   position: fixed;
   top: 50%;
@@ -190,9 +290,8 @@ img {
   height: 350px;
   width: 400px;
   padding: 40px;
-  z-index: 100;
+  /* z-index: 100; */
   justify-self: flex-end;
-  animation: slideInFromRight 1s ease-in;
 }
 
 .showcase-form .form-control {
@@ -212,31 +311,14 @@ img {
   outline: none;
 }
 
-/* .showcase::before,
-.showcase::after {
-  content: "";
-  position: absolute;
-  height: 100px;
-  bottom: -70px;
-  right: 0;
-  left: 0;
-  background: rgb(49, 49, 49);
-  transform: skewY(-3deg);
-  -webkit-transform: skewY(-3deg);
-  -moz-transform: skewY(-3deg);
-  -ms-transform: skewY(-3deg);
-} */
-
 /* Stats */
 .stats {
-  /* position: relative; */
   padding-top: 470px;
-  animation: slideInFromBottom 1s ease-in;
 }
 
 .stats-heading {
   position: relative;
-  /* max-width: 500px; */
+
   margin: auto;
 }
 
@@ -377,27 +459,6 @@ img {
   transition: transform 1.5s ease-in-out;
 }
 
-/* Footer */
-.footer .social a {
-  margin: 0 10px;
-}
-
-.fa-github:hover {
-  color: #000000;
-}
-
-.fa-facebook:hover {
-  color: #1773ea;
-}
-
-.fa-instagram:hover {
-  color: #b32e87;
-}
-
-.fa-twitter:hover {
-  color: #1c9cea;
-}
-
 /* Animations */
 @keyframes slideInFromLeft {
   0% {
@@ -440,7 +501,7 @@ img {
 }
 
 /* Laptops */
-@media (max-height: 1080px) {
+@media (max-height: 1090px) {
   .showcase {
     height: 300px;
   }
@@ -462,10 +523,6 @@ img {
     overflow: visible;
     grid-template-columns: 55% auto;
     gap: 100px;
-  }
-
-  .showcase-text {
-    animation: slideInFromLeft 1s ease-in;
   }
 
   .showcase-form .form-control {
@@ -521,13 +578,11 @@ img {
   .showcase-text {
     text-align: center;
     margin-top: 10px;
-    animation: slideInFromTop 1s ease-in;
   }
 
   .showcase-form {
     justify-self: center;
     margin-top: 500px;
-    animation: slideInFromBottom 1s ease-in;
   }
 }
 
@@ -553,7 +608,6 @@ img {
     text-align: center;
     padding: 5px;
     margin-top: 300px;
-    animation: slideInFromTop 1s ease-in;
   }
   .btn {
     display: inline-block;
